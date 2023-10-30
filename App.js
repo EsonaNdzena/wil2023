@@ -32,7 +32,7 @@ const MyStack = () => {
         <Drawer.Screen name="Fees" component={FeesScreen} />
         <Drawer.Screen name="Life Skills" component={LifeScreen} />
         <Drawer.Screen name="First Aid" component={FirstAidScreen} />
-        <Drawer.Screen name="Gardening & Maintenance" component={GardeningScreen} />
+        <Drawer.Screen name="Gardening Maintenance" component={GardeningScreen} />
         <Drawer.Screen name="Landscaping" component={LandscapingScreen} />
         <Drawer.Screen name="Sewing" component={SewingScreen} />
         <Drawer.Screen name="Child Minding" component={ChildmindingScreen} />

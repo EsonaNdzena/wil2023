@@ -1,10 +1,12 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet, TextInput} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { Checkbox, Card } from 'react-native-paper';
+import { Checkbox, Card, } from 'react-native-paper';
 import { ScrollView } from 'react-native-gesture-handler';
 
 const Fees = ({navigation}) => {
+  const [checked, setChecked,] = React.useState(false);
+
     return (
       <NavigationContainer independent={true}>
       <ScrollView>
@@ -51,23 +53,24 @@ const Fees = ({navigation}) => {
         <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
           <View>
             <Text style={{color: '#5E52A9'}}> 6 MONTHS COURSE {'\n'} [EACH R1500] </Text>
-            <Checkbox.Item label="First Aid" status="unchecked" />
-            <Checkbox.Item label="Sewing" status="unchecked" />
-            <Checkbox.Item label="Landscaping" status="unchecked" />
-            <Checkbox.Item label="Life Skills" status="unchecked" />
+            <Checkbox.Item label="First Aid" status={checked ? "checked" : "unchecked"} onPress={() => {
+        setChecked(!checked);}} />
+            <Checkbox.Item label="Sewing" />
+            <Checkbox.Item label="Landscaping"  />
+            <Checkbox.Item label="Life Skills"   />
           </View>
           <View>
             <Text style={{color: '#5E52A9'}}> 6 WEEK COURSE {'\n'} [EACH R750] </Text>
-            <Checkbox.Item label="Child Minding" status="unchecked" />
-            <Checkbox.Item label="Cooking" status="unchecked" />
-            <Checkbox.Item label="Garden Maintenance" status="unchecked" />
-            <TouchableOpacity style={{backgroundColor: 'red', height: 50, alignItems: 'center', justifyContent: 'center'}} onPress = {() => navigation.navigate('Contacts')}>
+            <Checkbox.Item label="Child Minding"    />
+            <Checkbox.Item label="Cooking"  />
+            <Checkbox.Item label="Garden Maintenance"   />
+            <TouchableOpacity style={{backgroundColor: 'red', height: 50, alignItems: 'center', justifyContent: 'center'}} onPress = {() => navigation.navigate('Contact')}>
               <Text style={{color: 'white'}}>Contact a consultant</Text>
             </TouchableOpacity>
           </View>
         </View>
 
-        <View>
+        <View style={{margin: 20}}>
           <Card style={styles.Card}>
             <View style={{flexDirection: 'row'}}>
               <Text style={{justifyContent: 'flex-start', fontSize: 26, fontWeight: 'bold'}}>YOUR ORDER</Text>
@@ -84,15 +87,11 @@ const Fees = ({navigation}) => {
                 <Text>R</Text>
               </View>
             </View>
-            <View>
-                <TouchableOpacity style={styles.button} >
-                  <Text style={{color: 'white'}}>Proceed to Checkout</Text>
-                </TouchableOpacity>
-            </View>
+            
           </Card>
         </View>
 
-        <View style={{backgroundColor: "#5E52A9", height: 50, marginTop: 30}}>
+        <View style={{backgroundColor: "#5E52A9", height: 50, marginTop: 60}}>
           <Text></Text>
         </View>
         </View>
@@ -140,7 +139,9 @@ const styles = StyleSheet.create({
   },
 
   Card: {
-    backgroundColor: '#D9D9D9'
+    backgroundColor: '#D9D9D9',
+    height: 150,
+    margin: 20
   },
 }
 );
